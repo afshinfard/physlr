@@ -4,6 +4,7 @@ IFS=$'\n'
 cpp=$(basename $1)
 py=$(basename $2)
 dir=$(dirname $1)
+
 cut -f1 $1 | sort -h > ${dir}/barcodes.$cpp
 cut -f1 $2 | sort -h > ${dir}/barcodes.$py
 
@@ -24,5 +25,4 @@ while read bx; do
 		rm ${dir}/${bx}.${cpp} ${dir}/${bx}.${py}
 	fi
 done < ${dir}/barcodes.$cpp
-
 rm ${dir}/barcodes.$cpp ${dir}/barcodes.$py
